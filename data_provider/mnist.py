@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import hickle as hkl
 
 class InputHandle:
     def __init__(self, input_param):
@@ -20,11 +21,11 @@ class InputHandle:
         self.load()
 
     def load(self):
-        dat_1 = np.load(self.paths[0])
+        dat_1 = hkl.load(self.paths[0])
         for key in dat_1.keys():
             self.data[key] = dat_1[key]
         if self.num_paths == 2:
-            dat_2 = np.load(self.paths[1])
+            dat_2 = hkl.load(self.paths[1])
             num_clips_1 = dat_1['clips'].shape[1]
             dat_2['clips'][:,:,0] += num_clips_1
             self.data['clips'] = np.concatenate(
