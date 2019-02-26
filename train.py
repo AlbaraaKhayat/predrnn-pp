@@ -36,7 +36,7 @@ tf.app.flags.DEFINE_string('pretrained_model', '',
                            'file of a pretrained model to initialize from.')
 tf.app.flags.DEFINE_integer('input_length', 10,
                             'encoder hidden states.')
-tf.app.flags.DEFINE_integer('seq_length', 10,
+tf.app.flags.DEFINE_integer('seq_length', 20,
                             'total input and output length.')
 tf.app.flags.DEFINE_integer('img_width', 160,
                             'input image width.')
