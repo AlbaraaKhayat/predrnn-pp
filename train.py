@@ -20,10 +20,10 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string('dataset_name', 'mnist',
                            'The name of dataset.')
 tf.app.flags.DEFINE_string('train_data_paths',
-                           'data/moving-mnist-example/moving-mnist-train.npz',
+                           '../data/hko7_160_valid_data.hkl',
                            'train data paths.')
 tf.app.flags.DEFINE_string('valid_data_paths',
-                           'data/moving-mnist-example/moving-mnist-valid.npz',
+                           '../data/hko7_160_valid_data.hkl',
                            'validation data paths.')
 tf.app.flags.DEFINE_string('save_dir', 'checkpoints/mnist_predrnn_pp',
                             'dir to store trained net.')
@@ -36,9 +36,9 @@ tf.app.flags.DEFINE_string('pretrained_model', '',
                            'file of a pretrained model to initialize from.')
 tf.app.flags.DEFINE_integer('input_length', 10,
                             'encoder hidden states.')
-tf.app.flags.DEFINE_integer('seq_length', 20,
+tf.app.flags.DEFINE_integer('seq_length', 10,
                             'total input and output length.')
-tf.app.flags.DEFINE_integer('img_width', 64,
+tf.app.flags.DEFINE_integer('img_width', 160,
                             'input image width.')
 tf.app.flags.DEFINE_integer('img_channel', 1,
                             'number of image channel.')
@@ -46,7 +46,7 @@ tf.app.flags.DEFINE_integer('stride', 1,
                             'stride of a convlstm layer.')
 tf.app.flags.DEFINE_integer('filter_size', 5,
                             'filter of a convlstm layer.')
-tf.app.flags.DEFINE_string('num_hidden', '128,64,64,64',
+tf.app.flags.DEFINE_string('num_hidden', '320,160,160,160',
                            'COMMA separated number of units in a convlstm layer.')
 tf.app.flags.DEFINE_integer('patch_size', 4,
                             'patch size on one dimension.')
@@ -55,15 +55,15 @@ tf.app.flags.DEFINE_boolean('layer_norm', True,
 # optimization
 tf.app.flags.DEFINE_float('lr', 0.001,
                           'base learning rate.')
-tf.app.flags.DEFINE_boolean('reverse_input', True,
+tf.app.flags.DEFINE_boolean('reverse_input', False,
                             'whether to reverse the input frames while training.')
-tf.app.flags.DEFINE_integer('batch_size', 8,
+tf.app.flags.DEFINE_integer('batch_size', 10,
                             'batch size for training.')
 tf.app.flags.DEFINE_integer('max_iterations', 80000,
                             'max num of steps.')
 tf.app.flags.DEFINE_integer('display_interval', 1,
                             'number of iters showing training loss.')
-tf.app.flags.DEFINE_integer('test_interval', 2000,
+tf.app.flags.DEFINE_integer('test_interval', 500,
                             'number of iters for test.')
 tf.app.flags.DEFINE_integer('snapshot_interval', 10000,
                             'number of iters saving models.')
